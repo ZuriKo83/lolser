@@ -36,7 +36,8 @@
 역할을 받은 후, 채널 및 역할에 따라 접근 가능한 채널이 달라집니다.  
 본인의 역할에 맞는 채널을 확인 후 이용해 주세요.
 
-(사진)
+<img width="2146" height="1338" alt="스크린샷 2026-04-30 175950" src="https://github.com/user-attachments/assets/2c941fd1-0d6c-4eaf-83a4-e0c75ac6fe9b" />
+
 
 ---
 
