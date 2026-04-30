@@ -10,7 +10,8 @@
 서버를 이용하려면 모든 채널 표시 기능을 활성화해야 합니다.  
 해당 기능이 비활성화된 경우, 서버 내 중요 카테고리를 확인할 수 없습니다.
 
-<img width="2225" height="1374" alt="스크린샷 2026-04-30 175734" src="https://github.com/user-attachments/assets/740ecd8e-87c5-4852-b22a-fc1ea8525bc4" />
+<img width="2225" height="1374" alt="585912083-740ecd8e-87c5-4852-b22a-fc1ea8525bc4" src="https://github.com/user-attachments/assets/2e658145-8ec3-4eb8-9b8a-35c7baa1b6c7" />
+
 
 
 ---
