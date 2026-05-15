@@ -3,47 +3,272 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>내전서버 이용 가이드</title>
+  <title>나미봇 내전 서버 가이드</title>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <style>
-    body { margin:0; background:#0f172a; color:#e5e7eb; font-family:Arial, sans-serif; }
-    header { padding:48px 24px; text-align:center; background:linear-gradient(135deg,#1e293b,#312e81); }
-    header h1 { margin:0; font-size:42px; }
-    header p { color:#cbd5e1; }
-    nav { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; padding:20px; background:#111827; position:sticky; top:0; }
-    button { border:0; border-radius:999px; padding:12px 18px; background:#334155; color:white; cursor:pointer; font-weight:700; }
-    button:hover, button.active { background:#6366f1; }
-    main { max-width:980px; margin:32px auto; padding:0 20px; }
-    .markdown-body { padding:36px; border-radius:24px; background:white; color:#111827; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(99, 102, 241, 0.35), transparent 32%),
+        radial-gradient(circle at top right, rgba(236, 72, 153, 0.28), transparent 30%),
+        linear-gradient(135deg, #020617 0%, #0f172a 55%, #111827 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
+
+    .hero {
+      padding: 72px 24px 42px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #c7d2fe;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(36px, 6vw, 64px);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .hero p {
+      margin: 18px auto 0;
+      max-width: 720px;
+      color: #cbd5e1;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .layout {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto 64px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 20px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    }
+
+    .sidebar-title {
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+
+    .tab {
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      background: transparent;
+      color: #e5e7eb;
+      text-align: left;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .tab small {
+      display: block;
+      margin-top: 4px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .tab:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .tab.active {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      box-shadow: 0 14px 34px rgba(99,102,241,0.35);
+    }
+
+    .tab.active small {
+      color: #e0e7ff;
+    }
+
+    .content-card {
+      border-radius: 28px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 28px 100px rgba(0,0,0,0.45);
+      overflow: hidden;
+    }
+
+    .content-top {
+      padding: 22px 30px;
+      background: linear-gradient(135deg, #111827, #312e81);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .content-top strong {
+      font-size: 18px;
+    }
+
+    .content-top span {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .markdown-body {
+      padding: 42px;
+      max-width: none;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2 {
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 10px;
+    }
+
+    .loading {
+      padding: 60px;
+      color: #64748b;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      padding: 0 24px 48px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .markdown-body {
+        padding: 26px;
+      }
+
+      .content-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
+
 <body>
-<header>
-  <h1>내전서버 이용 가이드</h1>
-  <p>서버 이용 방법, 내전 규정, 차단 기준, 서버 경고 기준 안내</p>
-</header>
+  <section class="hero">
+    <div class="badge">Discord League of Legends In-house Server</div>
+    <h1>나미봇 내전 서버 가이드</h1>
+    <p>
+      서버 이용 방법, 내전 규정, 무통보 차단 기준, 서버 경고 기준을 한 곳에서 확인할 수 있는 공식 안내 페이지입니다.
+    </p>
+  </section>
 
-<nav>
-  <button class="active" onclick="loadDoc('README.md', this)">이용 가이드</button>
-  <button onclick="loadDoc('내전규정.md', this)">내전 규정</button>
-  <button onclick="loadDoc('무통보차단리스트.md', this)">무통보 차단</button>
-  <button onclick="loadDoc('서버경고.md', this)">서버 경고</button>
-</nav>
+  <main class="layout">
+    <aside class="sidebar">
+      <p class="sidebar-title">문서 선택</p>
 
-<main>
-  <article id="content" class="markdown-body"></article>
-</main>
+      <button class="tab active" data-file="README.md" data-title="서버 이용 가이드">
+        서버 이용 가이드
+        <small>기본 사용법과 안내</small>
+      </button>
 
-<script>
-  async function loadDoc(file, btn) {
-    document.querySelectorAll("button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    const res = await fetch(file);
-    const text = await res.text();
-    document.getElementById("content").innerHTML = marked.parse(text);
-  }
-  loadDoc("README.md", document.querySelector("button"));
-</script>
+      <button class="tab" data-file="내전규정.md" data-title="내전 규정">
+        내전 규정
+        <small>게임 진행 규칙</small>
+      </button>
+
+      <button class="tab" data-file="무통보차단리스트.md" data-title="무통보 차단 리스트">
+        무통보 차단
+        <small>즉시 차단 기준</small>
+      </button>
+
+      <button class="tab" data-file="서버경고.md" data-title="서버 경고 기준">
+        서버 경고
+        <small>경고 부여 기준</small>
+      </button>
+    </aside>
+
+    <section class="content-card">
+      <div class="content-top">
+        <strong id="doc-title">서버 이용 가이드</strong>
+        <span>GitHub README 기반 자동 표시</span>
+      </div>
+
+      <article id="content" class="markdown-body">
+        <div class="loading">문서를 불러오는 중입니다.</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    © 나미봇 내전 서버 가이드
+  </footer>
+
+  <script>
+    const content = document.getElementById("content");
+    const title = document.getElementById("doc-title");
+    const tabs = document.querySelectorAll(".tab");
+
+    async function loadDoc(file, docTitle) {
+      content.innerHTML = '<div class="loading">문서를 불러오는 중입니다.</div>';
+      title.textContent = docTitle;
+
+      const response = await fetch(encodeURI(file));
+
+      if (!response.ok) {
+        content.innerHTML = '<div class="loading">문서를 불러오지 못했습니다.</div>';
+        return;
+      }
+
+      const markdown = await response.text();
+      content.innerHTML = marked.parse(markdown);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(item => item.classList.remove("active"));
+        tab.classList.add("active");
+        loadDoc(tab.dataset.file, tab.dataset.title);
+      });
+    });
+
+    loadDoc("README.md", "서버 이용 가이드");
+  </script>
 </body>
 </html>
