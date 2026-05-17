@@ -80,13 +80,20 @@
       height: 42px;
       border: 1px solid var(--border);
       border-radius: 50%;
-      display: grid;
-      place-items: center;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: var(--panel);
-      font-size: 12px;
-      font-weight: 950;
-      letter-spacing: -0.04em;
       box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .brand strong {
@@ -363,7 +370,9 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <div class="brand-mark">LOL<br>AIR</div>
+        <div class="brand-mark">
+          <img src="assets/logo.png" alt="LOL AIR 로고">
+        </div>
         <strong>LOL AIR</strong>
       </div>
       <button id="themeToggle" class="theme-toggle" type="button">라이트 모드</button>
