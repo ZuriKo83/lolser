@@ -18,6 +18,7 @@ LOL AIR 서버는 리그 오브 레전드 내전을 더 편하게 모집하고, 
 해당 기능이 비활성화된 경우, 서버 내 중요 카테고리와 안내 채널을 확인할 수 없습니다.
 
 <img width="2225" height="1374" alt="모든 채널 표시 설정 화면" src="https://github.com/user-attachments/assets/2e658145-8ec3-4eb8-9b8a-35c7baa1b6c7" />
+<img width="2227" height="1339" alt="스크린샷 2026-05-18 055058" src="https://github.com/user-attachments/assets/6fdaff4a-376d-4582-9fbd-e1dcfbfc9600" />
 
 ---
 
@@ -43,6 +44,7 @@ LOL AIR 서버는 리그 오브 레전드 내전을 더 편하게 모집하고, 
 본인의 역할에 맞는 채널을 확인한 뒤 서버를 이용해 주세요.
 
 <img width="2146" height="1338" alt="채널 및 역할 설정 화면" src="https://github.com/user-attachments/assets/2c941fd1-0d6c-4eaf-83a4-e0c75ac6fe9b" />
+<img width="2141" height="1341" alt="스크린샷 2026-05-18 055124" src="https://github.com/user-attachments/assets/37ebba6a-993f-4114-a30a-720ff192a931" />
 
 **⭐ 역할 변경 문의 전 확인 필수 ⭐**
 
